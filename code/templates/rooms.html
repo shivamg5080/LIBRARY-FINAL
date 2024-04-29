@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Rooms</h1>
+<ul>
+    {% for room in rooms %}
+    <li>
+        Room {{ room.room_no }} (Capacity: {{ room.capacity }}, Rate: ${{ room.rate }})
+        {% if room.occupied %}
+        <span style="color: green;">Occupied by {{ room.guests }}</span>
+        {% else %}
+        <span style="color: red;">Vacant</span>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

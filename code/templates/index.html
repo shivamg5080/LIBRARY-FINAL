@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block index_content %}
+<h2>Featured Books</h2>
+<div class="book-cards">
+    {% for book in featured_books %}
+    <div class="card">
+        <img src="{{ book.image_url }}" alt="Book Image">
+        <h2>{{ book.title }}</h2>
+        <p>Author: {{ book.author }}</p>
+        <p>Available: {{ 'Yes' if book.available else 'No' }}</p>
+        {% if book.available %}
+        <button>Borrow Now</button>
+        {% else %}
+        <button disabled>Borrow Now</button>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
